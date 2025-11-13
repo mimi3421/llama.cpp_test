@@ -1704,6 +1704,7 @@ bool ggml_backend_sched_reserve(ggml_backend_sched_t sched, struct ggml_cgraph *
 
 bool ggml_backend_sched_alloc_graph(ggml_backend_sched_t sched, struct ggml_cgraph * graph) {
     GGML_ASSERT(sched);
+    GGML_LOG_ERROR("%s: hash_set.size: %d, n_nodes: %d, n_leafs: %d \n", __func__,(int)sched->hash_set.size,graph->n_nodes,graph->n_leafs);
     GGML_ASSERT((int)sched->hash_set.size >= graph->n_nodes + graph->n_leafs);
     GGML_ASSERT(!sched->is_alloc);
 
